@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>角色動作畫布</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <nav class="touch-controls" aria-label="角色觸控控制">
+      <div class="direction-pad">
+        <button type="button" data-control="left" aria-label="向左移動"><span class="arrow arrow-left"></span></button>
+        <button type="button" data-control="right" aria-label="向右移動"><span class="arrow arrow-right"></span></button>
+      </div>
+      <button class="jump-button" type="button" data-control="jump" aria-label="跳躍或飛行">JUMP</button>
+    </nav>
+    <script src="sketch.js"></script>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #cbd9df;
+  touch-action: none;
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  image-rendering: pixelated;
+}
+
+.touch-controls {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  left: max(20px, env(safe-area-inset-left));
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  pointer-events: none;
+  user-select: none;
+}
+
+.direction-pad {
+  display: flex;
+  gap: 12px;
+}
+
+.touch-controls button {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgb(63 87 95 / 32%);
+  border-radius: 50%;
+  color: #30464e;
+  background: rgb(245 249 247 / 78%);
+  box-shadow: 0 3px 12px rgb(46 68 75 / 12%);
+  font: 700 11px/1 "Trebuchet MS", sans-serif;
+  letter-spacing: 1px;
+  pointer-events: auto;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.touch-controls button:active {
+  background: #ffffff;
+  transform: scale(0.94);
+}
+
+.arrow {
+  position: relative;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+}
+
+.arrow::before {
+  position: absolute;
+  top: -5px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  content: "";
+}
+
+.arrow-left::before {
+  left: 0;
+  transform: rotate(-45deg);
+}
+
+.arrow-right::before {
+  right: 0;
+  transform: rotate(135deg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .touch-controls {
+    opacity: 0.38;
+    transition: opacity 160ms ease;
+  }
+
+  .touch-controls:hover,
+  .touch-controls:focus-within {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .touch-controls button {
+    width: 58px;
+    height: 58px;
+  }
+}
